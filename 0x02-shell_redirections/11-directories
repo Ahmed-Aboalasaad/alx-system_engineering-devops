@@ -1,0 +1,2 @@
+#!/bin/bash
+echo $(( $(ls -al | cut -c 1 | grep -c "d") - 2 ))
