@@ -1,2 +1,2 @@
 #!/bin/bash
-pwd | find -empty | while read line; do basename "$line"; done
+find . -empty -exec basename {} \;
