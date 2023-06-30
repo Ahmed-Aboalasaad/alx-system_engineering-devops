@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "BEST=\"School\"" | sudo tee -a /etc/environment
+echo -e "BEST=School\nBEST=School" | sudo tee -a /etc/environment
