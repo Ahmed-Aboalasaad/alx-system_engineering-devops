@@ -1,2 +1,2 @@
 #!/bin/bash
-tr '\t' ' ' | cut -d ' ' -f 1,3,6 | tail -n +2 | rev | sort | rev | cut -d ' ' -f 1 | head -n 11
+tr '\t' ' ' | cut -d ' ' -f 1,3,6 | tail -n +2 | rev | sort -r | rev | cut -d ' ' -f 1 | head -n 11
