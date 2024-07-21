@@ -1,0 +1,48 @@
+# What Happens When You Type google.com In Your Browser And Hit Enter?
+When you type https://www.google.com into your browser's address bar and press Enter, a complex series of events takes place behind the scenes to bring the requested webpage to your screen. Let's break down each step in detail, covering DNS requests, TCP/IP, firewall, HTTPS/SSL, load balancer, web server, application server, and database.
+
+### 1. DNS Request
+Under the hood, websites are reached using their IP addresses, a number that identifies a website for a web server. However, having to type the website IP address every time you need reach it is very tedious. That’s why the DNS was invented. It stands for (Domain Name System). It’s main purpose is to resolve the human-readable domain name you write in the browser address bar into the corresponding IP address of this website, if any. This process is known as a DNS request. Here's how it works:
+
+Browser Cache: The browser checks its cache to see if it has recently resolved this domain name.
+Operating System Cache: If not found, the request moves to the operating system’s DNS cache.
+Router Cache: Next, the request checks the router’s cache.
+ISP’s DNS Server: If the IP address is still not found, the request is forwarded to the DNS server of the Internet Service Provider.
+Recursive Search: The ISP’s DNS server performs a recursive search, querying other DNS servers on the internet until it finds the authoritative DNS server for google.com.
+IP Address Resolution: The authoritative DNS server returns the IP address associated with www.google.com.
+
+### 2. TCP/IP
+Once the IP address is obtained, your browser initiates a connection to the server using the TCP/IP protocol suite by making a TCP Handshake:
+A three-way handshake is performed between your device and the web server to establish a reliable connection. This involves:
+
+SYN: Your device sends a SYN (synchronize) packet to the server.
+SYN-ACK: The server responds with a SYN-ACK (synchronize-acknowledge) packet.
+ACK: Your device sends an ACK (acknowledge) packet back to the server, establishing a connection.
+
+### 3. Firewall
+During this process, firewalls at various points (your device, network, ISP, and Google’s servers) inspect the packets to ensure they are safe and allowed to pass through. Firewalls block malicious traffic and enforce security policies.
+
+### 4. HTTPS/SSL
+To secure the data transmitted between your browser and Google’s server, HTTPS (Hyper Text Transfer Protocol Secure) is used, which involves SSL/TLS (Secure Sockets Layer/Transport Layer Security) encryption
+
+SSL Handshake: An SSL handshake occurs to establish a secure connection, a process that involves:
+
+Certificate Exchange: The server presents an SSL certificate to your browser, verifying its identity.
+Session Keys: Both parties generate session keys to encrypt the data.
+### 5. Load Balancer
+Google uses load balancers to distribute incoming traffic across multiple servers to ensure high availability and reliability. The load balancer directs your request to one of the many servers in Google’s data centers.
+
+### 6. Web Server
+The selected web server receives the request and processes it. The web server is responsible for handling HTTP requests, serving static content (like HTML, CSS, JavaScript), and forwarding dynamic requests to the application server.
+
+### 7. Application Server
+For dynamic content, the web server forwards the request to the application server. The application server runs the backend logic, processes the request, and interacts with other components like databases or microservices to generate the appropriate response.
+
+### 8. Database
+If the requested data is stored in a database, the application server queries the database. Databases store structured data and are accessed using SQL (Structured Query Language) or other query languages. The database server retrieves the necessary information and sends it back to the application server.
+
+### 9. Response Back to Browser
+Once the application server has processed the request and gathered all necessary data (possibly with the help of the database), it sends the response back to the web server, which then forwards it to the load balancer. The load balancer sends the response back to your browser.
+
+### Finally,
+The browser receives the response and renders the webpage, displaying https://www.google.com as you know it. This entire process happens in a matter of milliseconds, ensuring a seamless browsing experience. The intricate interplay of DNS resolution, TCP/IP, firewalls, HTTPS/SSL, load balancers, web servers, application servers, and databases is what makes the modern web possible.
