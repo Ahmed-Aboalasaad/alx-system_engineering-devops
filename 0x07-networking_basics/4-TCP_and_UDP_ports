@@ -1,0 +1,4 @@
+#!/bin/bash
+# displays listening ports, PID, and name of the program
+
+netstat -pl
