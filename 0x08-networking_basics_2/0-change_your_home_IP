@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#  configures an Ubuntu server
+target="/etc/hosts"
+
+sudo echo "" >> $target # add a new line
+
+
+# Redirect the localhost:
+newLine="172.0.0.2\tlocalhost"
+sudo sed -i "s/.*[ \t]localhost.*/${newLine}/" test
+
+# Redirect facebook.com
+sudo echo "8.8.8.8  facebook.com" >> $target
