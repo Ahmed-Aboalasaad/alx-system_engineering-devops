@@ -3,7 +3,7 @@
 target="/etc/hosts"
 
 # Redirect the localhost:
-newLine="127.0.0.2\tlocalhost"
+newLine="127.0.0.2  \tlocalhost"
 sed -i "s/.*[ \t]localhost.*/${newLine}/" $target
 
 # Redirect facebook.com
